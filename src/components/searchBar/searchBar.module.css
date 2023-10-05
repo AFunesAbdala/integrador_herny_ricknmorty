@@ -1,0 +1,101 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    gap: 10px 20px;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    align-self: center;
+
+}
+.input{
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: solid 2px #000;
+    box-shadow: 3px 3px #000;
+    font-family: 'Chivo';
+    font-weight: normal;
+    font-size: 1em;
+    padding-left: 10px;
+}
+.input:focus{
+    outline: none;
+    border: solid 2px #9ADD43;
+}
+.button{
+    color: #000;
+    width: 100px;
+    height: 35px;
+    background-color: #9ADD43;
+    box-shadow: 3px 3px #000;
+    border-radius: 5px;
+	border: solid 2px #000000;
+	font-family: 'Chivo';
+    font-weight: normal;
+    font-size: 1em;
+	cursor: pointer;
+	outline: inherit;
+    transition: .2s;
+}
+
+.button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px #000;
+  }
+  
+.button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 #000;
+}
+
+.buttonRandom{
+    width: 35px;
+    height: 35px;
+    background-image: url(../../img/icons/random_icon.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #EB4AA0;
+    box-shadow: 3px 3px #000;
+    border-radius: 5px;
+	border: solid 2px #000000;
+	cursor: pointer;
+	outline: inherit;
+    transition: .2s;
+}
+
+.buttonRandom:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px #000;
+  }
+  
+.buttonRandom:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 #000;
+}
+.btnRemove{
+    width: 35px;
+    height: 35px;
+    background-image: url(../../img/icons/trash_icon.png);
+    background-size: cover;
+    background-color: #ff5252;
+	font-family: 'Chivo';
+    font-weight: bolder;
+    font-size: 30px;
+    color: #000;
+    border: solid 2px #000;
+    border-radius: 5px;
+    box-shadow: 3px 3px #000;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: .2s;
+}
+.btnRemove:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px #000;
+  }
+  
+.btnRemove:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 #000;
+}

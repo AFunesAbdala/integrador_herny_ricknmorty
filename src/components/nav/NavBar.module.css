@@ -1,0 +1,102 @@
+.nav{
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    width: 100%;
+    background-color: #000;
+}
+.container{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    width: 110px;
+    height: 30px;
+    background-image: url(../../img/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.navLinks{
+    display: flex;
+    justify-content: space-between;
+    gap: 0px 20px;
+    margin-top: 2px;
+}
+.logOut{
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    background-size: cover;
+    background-image: url(../../img/icons/logOut.png);
+    transition: .2s;
+    cursor: pointer;
+}
+.logOut:hover{
+    background-color: #EB4AA0;
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px #FFF;
+    background-image: url(../../img/icons/logOutWhite.png);
+}
+.Link{
+    height: 30px;
+    width: 70px;
+    color: #000;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Chivo';
+    font-weight: bold;
+    font-size: 16px;
+    transition: .2s;
+}
+.Link:hover{
+    color: #FFF;
+    background-color: #EB4AA0;
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px #fff;
+}
+.Link:active {
+    transform: translate(1px, 1px);
+    box-shadow: 0 0 #000;
+}
+.LinkF{
+    height: 30px;
+    width: 100px;
+    color: #000;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Chivo';
+    font-weight: bold;
+    font-size: 16px;
+    transition: .2s;
+}
+.LinkF:hover{
+    color: #FFF;
+    background-color: #EB4AA0;
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px #fff;
+}
+.LinkF:active {
+    transform: translate(1px, 1px);
+    box-shadow: 0 0 #EB4AA0;
+}
+.activeLink{
+    color: #FFF;
+    background-color: #EB4AA0;
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px #fff;
+}

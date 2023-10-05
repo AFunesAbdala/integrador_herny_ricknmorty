@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+}
+.landBack{
+    background-image: url(img/background/landBack.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.homeBack{
+    background-image: url(img/background/homeBack.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.detailBack{
+    background-image: url(img/background/detailBack.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.aboutBack{
+    background-image: url(img/background/aboutBack.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.favoritesBack{
+    background-image: url(img/background/favoritesBack.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}

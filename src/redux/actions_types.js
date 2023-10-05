@@ -1,0 +1,9 @@
+export const ADD_CHARACTER_ID = 'ADD_CHARACTER_ID';
+export const ADD_CHARACTER_RANDOM = 'ADD_CHARACTER_RANDOM';
+export const REMOVE_CHARACTER = 'REMOVE_CHARACTER';
+export const REMOVE_ALL = 'REMOVE_ALL';
+export const ADD_FAV = 'ADD_FAV';
+export const REMOVE_FAV = 'REMOVE_FAV';
+export const FILTER = 'FILTER';
+export const ORDER = 'ORDER';
+export const SHOW_ALL_FAV = 'SHOW_ALL_FAV'
