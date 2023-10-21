@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import style from "./detailInfo.module.css"
 import { useSelector } from 'react-redux'
-import Helpers from "../../helper/Routes.helper";
 
 const DetailInfo = (props) => {
     const {character, pathname} = props;
@@ -50,11 +49,11 @@ const DetailInfo = (props) => {
                     </div>
                     <div className={style.infoBox}>
                         <h5>First seen in:</h5>
-                        <p>{character.origin.name}</p>
+                        <p>{character.origin}</p>
                     </div>                    
                     <div className={style.infoBox}>
                         <h5>Last known location:</h5>
-                        <p>{character.location.name}</p>
+                        <p>{character.location}</p>
                     </div>                   
                 </div>
                 <div className={style.btnContainer}>
