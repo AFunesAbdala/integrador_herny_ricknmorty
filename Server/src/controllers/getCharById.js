@@ -7,7 +7,7 @@ const getCharById = (res, id) => {
         const character = response.data
 
         return {
-            id : id,
+            id : Number(id),
             name : character.name,
             gender : character.gender,
             species : character.species,
