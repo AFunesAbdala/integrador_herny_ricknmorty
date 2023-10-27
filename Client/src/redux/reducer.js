@@ -21,7 +21,7 @@ const rootReducer = (state = initialState, {type, payload}) => {
         default:
             return {...state};
         case ADD_FAV:
-            return {...state, allCharactersFav : [...state.allCharactersFav, payload], myFavorites : [...state.myFavorites, payload]};
+            return { ...state, myFavorites: payload, allCharactersFav: payload };
         case FILTER:
             return {...state, myFavorites : state.allCharactersFav.filter((char) => char.gender == payload)}
         case ORDER:
@@ -33,7 +33,7 @@ const rootReducer = (state = initialState, {type, payload}) => {
             }
             return {...state, myFavorites : updatedMyFavorites}
         case REMOVE_FAV:
-            return {...state, myFavorites: state.myFavorites.filter((char) => char.id !== Number(payload)), allCharactersFav : state.allCharactersFav.filter((char) => char.id !== Number(payload))};
+            return { ...state, myFavorites: payload, allCharactersFav: payload };
         case SHOW_ALL_FAV:
             return {...state, myFavorites: [...state.allCharactersFav]}
         case ADD_CHARACTER_ID:

@@ -8,6 +8,7 @@ import Landing from './views/Landing';
 import Helpers from './helper/Routes.helper'
 import { useEffect, useState } from 'react';
 import Favorites from './views/Favorites';
+import axios from "axios";
 
 function App() {
 
@@ -15,14 +16,15 @@ function App() {
    const [access, setAccess] = useState(false);
 
    //! FAKE DB
-   const EMAIL = 'example@example.com';
-   const PASSWORD = 'examplePass1';
 
    function login(userData) {
-   if (userData.password === PASSWORD && userData.email === EMAIL) {
-       setAccess(true);
-       navigate('/home');
-       }
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      });
    }
 
    useEffect(() => {
