@@ -5,7 +5,10 @@ const login = (req, res) => {
 
     const validUser = user.find((u) => u.email === email && u.password === password) 
 
-    if (!validUser) res.status(200).json({ access: false })
+    if (!validUser) {
+        res.status(400).json({ access : false, message: "No existe el Usuario"})
+        return
+    }
 
     res.status(200).json({ access : true })
 }
