@@ -14,30 +14,79 @@ import axios from "axios";
 
 export const remove_fav = (id) => {
   const endpoint = `http://localhost:3001/rickandmorty/fav/${id}`;
-  return (dispatch) => {
-     axios.delete(endpoint).then(({ data }) => {
+  return async (dispatch) => {  // ASYNC-AWAIT
+    
+    try {
+      const response = await axios.delete(endpoint)
+      if (response.status === 200) {
+        return dispatch({
+          type: REMOVE_FAV,
+          payload: response.data,
+        });
+      }
+    } catch (error) {
+      window.alert(error)
+    }
+
+    // PROMISES
+
+     /* axios.delete(endpoint).then(({ data }) => {
         return dispatch({
            type: REMOVE_FAV,
            payload: data,
      });
-     });
+     }); */
   };
 };
 
 export const add_fav = (character) => {
   const endpoint = 'http://localhost:3001/rickandmorty/fav';
-  return (dispatch) => {
-     axios.post(endpoint, character).then(({ data }) => {
+  return async (dispatch) => {  // ASYNC-AWAIT
+
+    try {
+      const response = await axios.post(endpoint, character)
+      if (response.status === 200) {
         return dispatch({
-           type: ADD_FAV,
-           payload: data,
+          type: ADD_FAV,
+          payload: response.data,
         });
-     });
+      }
+    } catch (error) {
+      window.alert(error)
+    }
+
+    // PROMISES
+
+    /* axios.post(endpoint, character).then(({ data }) => {
+      return dispatch({
+        type: ADD_FAV,
+        payload: data,
+      });
+    }); */
   };
 };
 
 export const add_Character = (id) => {
-    return function (dispatch) {
+    return async function (dispatch) {  // ASYNC-AWAIT
+      try {
+        const response = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
+     
+        const data = response.data
+
+        if (data) {
+          dispatch({type : ADD_CHARACTER_ID, payload : data});
+        } else {
+          window.alert('¡No hay personajes con este ID!');
+        }
+
+      } catch (error) {
+        window.alert(error.message);
+      }
+    }
+    
+    // PROMISES
+
+          /* function (dispatch) {
         fetch(`http://localhost:3001/rickandmorty/character/${id}`)
         .then((response) => {
           if (!response.ok) {
@@ -55,11 +104,30 @@ export const add_Character = (id) => {
         .catch((error) => {
           window.alert(error.message);
         });
-    }
+    } */
 }
 
 export const add_Character_Random = (id) => {
-    return function (dispatch) {
+    return async function (dispatch) {  // ASYNC-AWAIT
+      try {
+        const response = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
+     
+        const data = response.data
+
+        if (data) {
+          dispatch({type : ADD_CHARACTER_RANDOM, payload : data});
+        } else {
+          window.alert('¡No hay personajes con este ID!');
+        }
+
+      } catch (error) {
+        window.alert(error.message);
+      }
+    }
+    
+    // PROMISES
+
+          /* function (dispatch) {
         fetch(`http://localhost:3001/rickandmorty/character/${id}`)
         .then((response) => {
           if (!response.ok) {
@@ -77,7 +145,7 @@ export const add_Character_Random = (id) => {
         .catch((error) => {
           window.alert(error.message);
         });
-    }
+    } */
 }
 
 export const remove_character = (id) => {

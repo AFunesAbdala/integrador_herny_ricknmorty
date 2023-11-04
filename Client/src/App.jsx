@@ -15,16 +15,28 @@ function App() {
    const navigate = useNavigate();
    const [access, setAccess] = useState(false);
 
-   //! FAKE DB
-
-   function login(userData) {
+   async function login(userData) {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+
+      // ASYNC-AWAIT
+      try {
+         const response = await axios.get(URL + `?email=${email}&password=${password}`)
+         const data = response.data;
+
+         setAccess(data.access);
+         data.access && navigate('/home');
+      } catch (error) {
+         window.alert(error)
+      }
+
+      // PROMISES
+
+      /* axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
          const { access } = data;
          setAccess(data);
          access && navigate('/home');
-      });
+      }); */
    }
 
    useEffect(() => {
