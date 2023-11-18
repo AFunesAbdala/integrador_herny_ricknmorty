@@ -1,7 +1,5 @@
 const express = require('express');
-
 const server = express();
-
 const routes = require("./routes/index")
 
 server.use((req, res, next) => {
