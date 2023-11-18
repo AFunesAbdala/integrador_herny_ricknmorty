@@ -1,10 +1,31 @@
 .land{
     width: 100%;
     height: 100vh;
-    display: flex;
-    justify-content: end;
-    align-items: center;
+    position: absolute;
 }
+.formWrap{
+    width: fit-content;
+    position: relative;
+    left: 55%;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+}
+.linksWrap{
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
+.linksWrap p {
+    font-weight: lighter;
+    color: white;
+}
+.linksWrap b {
+    cursor: pointer;
+}
+.linksWrap b:hover {
+    color: #EB4AA0;
+}
+
 .home{
     display: flex;
     flex-direction: column;

@@ -2,14 +2,25 @@ import CardFav from './CardFav'
 import style from './CardsContainer.module.css';
 import { useDispatch } from 'react-redux'
 import { filterCards, orderCards, show_all_fav } from '../../redux/actions';
+import { useState } from 'react';
 
 const CardsFav = (props) => {
    const {myFavorites, onClose} = props;
 
+   const [isOnA , setisOnA] = useState(false)
+   const [isOnB , setisOnB] = useState(false)
+
    const dispatch = useDispatch()
 
-   const handleOrder = (event) => {
-      dispatch(orderCards(event.target.value))
+   const handleOrder = (order) => {
+      if (order === "A") {
+         setisOnA(true)
+         setisOnB(false)
+      } else {
+         setisOnB(true)
+         setisOnA(false)
+      }
+      dispatch(orderCards(order))
    }
 
    const handleFilter = (event) => {
@@ -25,15 +36,13 @@ const CardsFav = (props) => {
          <div className={style.selectContainer}>
             <div className={style.boxSelect}>
                <h3>Order:</h3>
-               <select className={style.select} onChange={handleOrder}>
-                  <option value="A">Ascending</option>
-                  <option value="D">Descending</option>
-               </select>
+               <div className={isOnA ? style.selectAon : style.selectA} onClick={()=>{handleOrder("A")}} data-tooltip="Ascending"></div>
+               <div className={isOnB ? style.selectBon : style.selectB} onClick={()=>{handleOrder("D")}} data-tooltip="Descending"></div>
             </div>
             <div className={style.boxSelect}>
                <h3>Gender:</h3>
                <select className={style.select} onChange={handleFilter}>
-                  <option className={style.option} value="All">All</option>
+                  <option value="All">All</option>
                   <option value="Male">Male</option>
                   <option value="Female">female</option>
                   <option value="unknown">unknown</option>

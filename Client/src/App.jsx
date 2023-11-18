@@ -14,7 +14,10 @@ function App() {
 
    const navigate = useNavigate();
    const [access, setAccess] = useState(false);
-
+   const [ messagePop , setmessagePop] = useState("");
+   const [ activePop, setActivePop] = useState(false)
+   const [ isLogin , setIsLogin] = useState(true)
+ 
    async function login(userData) {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
@@ -27,7 +30,9 @@ function App() {
          setAccess(data.access);
          data.access && navigate('/home');
       } catch (error) {
-         window.alert(error)
+         setActivePop(true)
+         setmessagePop(error.response.data.message)
+         setIsLogin(false)
       }
 
       // PROMISES
@@ -39,6 +44,26 @@ function App() {
       }); */
    }
 
+   function signIn(userData) {
+
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+
+      axios
+         .post(URL, userData)
+         .then((response) => {
+            if (response) {
+               setActivePop(true)
+               setmessagePop(response.data.message)
+               setIsLogin(true)
+            } 
+         })
+         .catch((error) => {
+            setActivePop(true)
+            setmessagePop(error.response.data.message)
+            setIsLogin(false)
+         })
+   }
+
    useEffect(() => {
       !access && navigate('/');
    }, [access]);
@@ -46,6 +71,14 @@ function App() {
    const logOut = () => {
       setAccess(false);
       navigate('/');
+   }
+
+   const handlePopUp = () => {
+      setActivePop(!activePop)
+   }
+
+   const handlerFragment = () => {
+      setIsLogin(!isLogin)
    }
 
 
@@ -73,7 +106,7 @@ function App() {
       <div className="App">
          {pathname != "/" && <NavBar logOut={logOut}></NavBar>}
          <Routes>
-            <Route path={Helpers.Landing} element={<Landing login={login}/>}></Route>
+            <Route path={Helpers.Landing} element={<Landing isLogin={isLogin} login={login} signIn={signIn} message={messagePop} active={activePop} handler={handlePopUp} handlerFragment={handlerFragment} />}></Route>
             <Route path={Helpers.Home} element={<Home/>}></Route>
             <Route path={Helpers.About} element={<About/>}></Route>
             <Route path={Helpers.Detail} element={<Detail/>}></Route>

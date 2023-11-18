@@ -43,10 +43,137 @@
     border: solid 2px #000;
     border-radius: 5px;
 }
+.selectA{
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../img/icons/orderUP1.png");
+    cursor: pointer;
+    position: relative;
+}
+.selectA::before,
+.selectA::after{
+    --scale : 0;
+    position: absolute;
+    top: 50px;
+    left: 8px;
+    transform: translateX(-50%) translateY(-50%) scale(var(--scale));
+    transition: .1s;
+    transform-origin: top center;
+}
+.selectA::before{
+    content: attr(data-tooltip);
+    background-color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    color: #FFF;
+}
+.selectA:hover::before{
+    --scale : 1;
+}
+.selectAon{
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../img/icons/orderUP2.png");
+    cursor: pointer;
+    position: relative;
+}
+.selectAon::before,
+.selectAon::after{
+    --scale : 0;
+    position: absolute;
+    top: 50px;
+    left: 8px;
+    transform: translateX(-50%) translateY(-50%) scale(var(--scale));
+    transition: .1s;
+    transform-origin: top center;
+}
+.selectAon::before{
+    content: attr(data-tooltip);
+    background-color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    color: #FFF;
+}
+.selectAon:hover::before{
+    --scale : 1;
+}
 
+
+.selectB{
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../img/icons/orderDOWN1.png");
+    cursor: pointer;
+    position: relative;
+}
+.selectB::before,
+.selectB::after{
+    --scale : 0;
+    position: absolute;
+    top: 50px;
+    left: 8px;
+    transform: translateX(-50%) translateY(-50%) scale(var(--scale));
+    transition: .1s;
+    transform-origin: top center;
+}
+.selectB::before{
+    content: attr(data-tooltip);
+    background-color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    color: #FFF;
+}
+.selectB:hover::before{
+    --scale : 1;
+}
+
+
+.selectBon{
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../../img/icons/orderDOWN2.png");
+    cursor: pointer;
+    position: relative;
+}
+.selectBon::before,
+.selectBon::after{
+    --scale : 0;
+    position: absolute;
+    top: 50px;
+    left: 9px;
+    transform: translateX(-50%) translateY(-50%) scale(var(--scale));
+    transition: .1s;
+    transform-origin: top center;
+}
+.selectBon::before{
+    content: attr(data-tooltip);
+    background-color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    color: #FFF;
+}
+.selectBon:hover::before{
+    --scale : 1;
+}
+
+.select{
+    height: 30px;
+    padding-left: 5px;
+
+    appearance: none;
+}
 .select:focus{
     border: solid 2px #9ADD43;
-}
-.option:hover{
-    background-color: #EB4AA0;
 }
